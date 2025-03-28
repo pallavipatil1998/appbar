@@ -11,7 +11,7 @@ class _StatausTabPageState extends State<StatausTabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Call"),),
+
       body: Container(color: Colors.purple.shade200,),
     );
   }
