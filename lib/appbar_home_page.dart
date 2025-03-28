@@ -100,10 +100,10 @@ class _AppbarHomePageState extends State<AppbarHomePage> {
         slivers: [
           SliverAppBar(
 
-            floating: true,
-              pinned: false,
-              snap: true,
-              expandedHeight: 200,
+            floating: false,
+              pinned: true,
+              snap: false,
+              expandedHeight: 100,
 
               backgroundColor: Colors.deepPurple.shade800,
               foregroundColor: Colors.white,
@@ -123,10 +123,10 @@ class _AppbarHomePageState extends State<AppbarHomePage> {
 
               //for big size
               bottom: PreferredSize(
-                  preferredSize: Size(double.infinity,300),
+                  preferredSize: Size(double.infinity,50),
                   child: Container()
               ),
-              flexibleSpace: Container(height: 200,color: Colors.green,),
+              flexibleSpace: Container(height: 100,color: Colors.green,),
               actions: [
                 IconButton(onPressed: (){}, icon:Icon(Icons.camera_alt_outlined)),
                 IconButton(onPressed: (){}, icon:Icon(Icons.settings)),
@@ -142,39 +142,23 @@ class _AppbarHomePageState extends State<AppbarHomePage> {
                       });
                     },
                     itemBuilder: (_){
-                      return [
-                        PopupMenuItem(
-                            value:"Settings" ,
-                            onTap: (){
-                            },
-                            child: Row(
-                              children: [
-                                Icon(Icons.settings),
-                                SizedBox(width: 10,),
-                                Text("Settings"),
-                              ],
-                            )),
-                        PopupMenuItem(
-                            value:"info" ,
-                            onTap: (){},
-                            child: Row(
-                              children: [
-                                Icon(Icons.info),
-                                SizedBox(width: 10,),
-                                Text("info"),
-                              ],
-                            )),
-                        PopupMenuItem(
-                            value:"account" ,
-                            onTap: (){},
-                            child: Row(
-                              children: [
-                                Icon(Icons.account_circle),
-                                SizedBox(width: 10,),
-                                Text("account"),
-                              ],
-                            )),
-                      ];
+                      return listPopupMenuItems
+                          .map((eachData) => PopupMenuItem(
+                          value: eachData['title'],
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                eachData['icon'],
+                                color: Colors.blueGrey,
+                              ),
+                              SizedBox(
+                                width: 11,
+                              ),
+                              Text(eachData['title']),
+                            ],
+                          )))
+                          .toList();
                     }),
               ],
 
@@ -209,6 +193,6 @@ class _AppbarHomePageState extends State<AppbarHomePage> {
                                ],
                              )))
                          .toList();
-                   })
+
 
 */
