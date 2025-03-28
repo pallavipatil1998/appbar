@@ -25,14 +25,21 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
     return Scaffold(
       appBar: AppBar(title: Text("BottomNavigationBar"),),
       body: listNavigationDest[mIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:NavigationBar(
+        selectedIndex: mIndex,
+          onDestinationSelected: (index){
+          mIndex=index;
+          setState(() {});
 
-        selectedItemColor: Colors.deepPurple.shade800,
-          unselectedItemColor: Colors.pink,
-          items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Account"),
-        BottomNavigationBarItem(icon: Icon(Icons.settings),label: "Settings")
+          },
+          indicatorColor: Colors.pink,
+          //labal show
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.account_circle_outlined),selectedIcon: Icon(Icons.account_circle_rounded), label: "Account"),
+            NavigationDestination(icon: Icon(Icons.settings), label: "Settings")
 
 
       ])
