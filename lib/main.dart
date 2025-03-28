@@ -1,4 +1,5 @@
 import 'package:app_bar/appbar_home_page.dart';
+import 'package:app_bar/bottom_navigation_Bar.dart';
 import 'package:app_bar/tab_bar_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TabBarPage()
+      home: BottomNavigationBarPage()
     );
   }
 }
